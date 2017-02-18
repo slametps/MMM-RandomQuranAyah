@@ -17,8 +17,8 @@ modules: [
 			showArabic: true,
 			showTranslation: true,
 			surahArabicName:false,
-			translationLang:'id.indonesian',
-			updateInterval: 3600 * 1000, // milliseconds
+			translationLang:'en.yusufali',
+			updateInterval: 3600 * 1000, // 1 hour
 		}
 	}
 ]
