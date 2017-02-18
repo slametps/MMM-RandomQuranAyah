@@ -1,0 +1,59 @@
+{
+	"code":200,
+	"status":"OK",
+	"data":[
+		{
+			"number":6236,
+			"text":"\u0645\u0650\u0646\u064e \u0627\u0644\u0652\u062c\u0650\u0646\u0651\u064e\u0629\u0650 \u0648\u064e\u0627\u0644\u0646\u0651\u064e\u0627\u0633\u0650",
+			"edition":
+			{
+				"identifier":"quran-simple",
+				"language":"ar",
+				"name":"Simple",
+				"englishName":"Simple",
+				"format":"text",
+				"type":"quran"
+			},
+			"surah":
+			{
+				"number":114,
+				"name":"\u0633\u0648\u0631\u0629 \u0627\u0644\u0646\u0627\u0633",
+				"englishName":"An-Naas",
+				"englishNameTranslation":"Mankind",
+				"numberOfAyahs":6,
+				"revelationType":"Meccan"
+			},
+			"numberInSurah":6,
+			"juz":30
+		}
+	]
+}
+
+{
+	"code":200,
+	"status":"OK",
+	"data":[
+		{
+			"number":6236,
+			"text":"dari (golongan) jin dan manusia.",
+			"edition":{
+				"identifier":"id.indonesian",
+				"language":"id",
+				"name":"Bahasa Indonesia",
+				"englishName":"Unknown",
+				"format":"text",
+				"type":"translation"
+			},
+			"surah":{
+				"number":114,
+				"name":"\u0633\u0648\u0631\u0629 \u0627\u0644\u0646\u0627\u0633",
+				"englishName":"An-Naas",
+				"englishNameTranslation":"Mankind",
+				"numberOfAyahs":6,
+				"revelationType":"Meccan"
+			},
+			"numberInSurah":6,
+			"juz":30
+		}
+	]
+}
