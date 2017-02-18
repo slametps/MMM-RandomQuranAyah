@@ -15,12 +15,12 @@ Module.register("MMM-RandomQuranAyah",{
 		var self = this;
 
 		// do this once first
-		self.sendSocketNotification('START', self.config);
+		self.sendSocketNotification('START_QURAN', self.config);
 
 		// then every interval
 		setInterval(function() {
       //console.log("before send socketNotification - " + this.config.translationLang);
-      self.sendSocketNotification('START', self.config);
+      self.sendSocketNotification('START_QURAN', self.config);
     }, this.config.updateInterval);
 	},
 
@@ -28,6 +28,20 @@ Module.register("MMM-RandomQuranAyah",{
 	getDom: function() {
 		Log.log("Updating MMM-RandomQuranAyah DOM.");
     var self = this;
+    var arabic = "";
+    var translation = "";
+    var ayahNumberInSurah = "";
+    var surahNameArabic = "";
+    var surahNameEnglish = "";
+
+    if (this.arabic != null && this.translation != null && this.ayahNumberInSurah != null &&
+        this.surahNameArabic != null && this.surahNameEnglish != null) {
+      arabic = this.arabic;
+      translation = this.translation;
+      ayahNumberInSurah = this.ayahNumberInSurah;
+      surahNameArabic = this.surahNameArabic;
+      surahNameEnglish = this.surahNameEnglish;
+    }
 
     var wrapper = document.createElement("div");
 
@@ -35,7 +49,7 @@ Module.register("MMM-RandomQuranAyah",{
     {
       var txtArabic = document.createElement("div");
       txtArabic.className = "bright medium light";
-      txtArabic.innerHTML = this.result.arabic;
+      txtArabic.innerHTML = arabic;
       wrapper.appendChild(txtArabic);
     }
 
@@ -43,13 +57,13 @@ Module.register("MMM-RandomQuranAyah",{
 		txtTranslation.className = "bright small light";
     var htmlRef = "";
     if (self.config.surahArabicName) {
-      htmlRef = this.result.surahNameArabic + ":" + this.result.ayahNumberInSurah;
+      htmlRef = surahNameArabic + ":" + ayahNumberInSurah;
     }
     else {
-      htmlRef = "QS. " + this.result.surahNameEnglish + ":" + this.result.ayahNumberInSurah;
+      htmlRef = "QS. " + surahNameEnglish + ":" + ayahNumberInSurah;
     }
     if (self.config.showTranslation){
-		  txtTranslation.innerHTML = this.result.translation + " (" + htmlRef + ")";
+		  txtTranslation.innerHTML = translation + " (" + htmlRef + ")";
     }
     else {
       txtTranslation.innerHTML = "(" + htmlRef + ")";
@@ -68,15 +82,15 @@ Module.register("MMM-RandomQuranAyah",{
 	socketNotificationReceived: function(notification, payload) {
 		Log.log("socket received from Node Helper");
     var self = this;
-		if(notification == "QURAN_RANDOM_RESULT"){
+		if (notification == "QURAN_RANDOM_RESULT"){
 			var json = payload;
 			Log.log(payload);
 			console.log("socketNotificationReceived [" + payload + "]");
-			/*this.ayahArabicRandom = json.content.arabic;
-      this.ayahTranslation = json.content.translation;
-			this.surah = json.content.surah_translation;
-      this.ayahId = json.content.ayah;*/
-      this.result = payload;
+      this.arabic = json.arabic;
+      this.translation = json.translation;
+      this.ayahNumberInSurah = json.ayahNumberInSurah;
+      this.surahNameArabic = json.surahNameArabic;
+      this.surahNameEnglish = json.surahNameEnglish;
 
 			this.updateDom(self.config.animationSpeed);
 		}
