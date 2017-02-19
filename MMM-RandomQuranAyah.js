@@ -34,6 +34,8 @@ Module.register("MMM-RandomQuranAyah",{
     var surahNameArabic = "";
     var surahNameEnglish = "";
 
+    var wrapper = document.createElement("div");
+
     if (this.arabic != null && this.translation != null && this.ayahNumberInSurah != null &&
         this.surahNameArabic != null && this.surahNameEnglish != null) {
       arabic = this.arabic;
@@ -41,34 +43,36 @@ Module.register("MMM-RandomQuranAyah",{
       ayahNumberInSurah = this.ayahNumberInSurah;
       surahNameArabic = this.surahNameArabic;
       surahNameEnglish = this.surahNameEnglish;
-    }
 
-    var wrapper = document.createElement("div");
+      if (self.config.showArabic)
+      {
+        var txtArabic = document.createElement("div");
+        txtArabic.className = "bright medium light";
+        txtArabic.innerHTML = arabic;
+        wrapper.appendChild(txtArabic);
+      }
 
-    if (self.config.showArabic)
-    {
-      var txtArabic = document.createElement("div");
-      txtArabic.className = "bright medium light";
-      txtArabic.innerHTML = arabic;
-      wrapper.appendChild(txtArabic);
-    }
-
-		var txtTranslation = document.createElement("div");
-		txtTranslation.className = "bright small light";
-    var htmlRef = "";
-    if (self.config.surahArabicName) {
-      htmlRef = surahNameArabic + ":" + ayahNumberInSurah;
+      var txtTranslation = document.createElement("div");
+      txtTranslation.className = "bright small light";
+      var htmlRef = "";
+      if (self.config.surahArabicName) {
+        htmlRef = surahNameArabic + ":" + ayahNumberInSurah;
+      }
+      else {
+        htmlRef = "QS. " + surahNameEnglish + ":" + ayahNumberInSurah;
+      }
+      if (self.config.showTranslation){
+        txtTranslation.innerHTML = translation + " (" + htmlRef + ")";
+      }
+      else {
+        txtTranslation.innerHTML = "(" + htmlRef + ")";
+      }
+      wrapper.appendChild(txtTranslation);
     }
     else {
-      htmlRef = "QS. " + surahNameEnglish + ":" + ayahNumberInSurah;
+      wrapper.className = "bright small light";
+      wrapper.innerHTML = this.translate("LOADING");
     }
-    if (self.config.showTranslation){
-		  txtTranslation.innerHTML = translation + " (" + htmlRef + ")";
-    }
-    else {
-      txtTranslation.innerHTML = "(" + htmlRef + ")";
-    }
-    wrapper.appendChild(txtTranslation);
 
 		return wrapper;
   },
