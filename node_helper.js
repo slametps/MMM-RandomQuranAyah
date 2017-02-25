@@ -17,18 +17,18 @@ module.exports = NodeHelper.create({
 
 	socketNotificationReceived: function(notification, payload) {
 		console.log(this.name + " node helper received a socket notification: " + notification + " - Payload: " + payload);
-    //console.log(this.name + "/nodehelpder/lang=" + payload.translationLang);
+    //console.log(this.name + "/nodehelper/lang=" + payload.translationLang);
 		this.quranRandomRequest(payload);
 	},
 
 	quranRandomRequest: function(payload) {
-    //console.log(this.name + "/nodehelpder/quranRandomRequest-" + payload.translationLang);
+    //console.log(this.name + "/nodehelper/quranRandomRequest-" + payload.translationLang);
 		var self = this;
     var randomAyah = self.getRandomAyah(1, 6236);
     var quranArabicURL = "http://api.alquran.cloud/ayah/" + randomAyah + "/editions/ar";
     var quranTranslationURL = "http://api.alquran.cloud/ayah/" + randomAyah + "/editions/" + payload.translationLang;
-    //console.log(this.name + "/nodehelpder/URL1-"+quranArabicURL);
-    //console.log(this.name + "/nodehelpder/URL2-"+quranTranslationURL);
+    //console.log(this.name + "/nodehelper/URL1-"+quranArabicURL);
+    //console.log(this.name + "/nodehelper/URL2-"+quranTranslationURL);
 
     var textArabic = "";
     var textTranslation = "";
@@ -43,24 +43,24 @@ module.exports = NodeHelper.create({
     async.parallel({
       arabic: function (callback) {
         request({ url: quranArabicURL, method: 'GET' }, function(error, response, body) {
-          console.log("/nodehelpder/get arabic with statuscode-" + response.statusCode);
+          console.log("/nodehelper/get arabic with statuscode-" + response.statusCode);
           callback(error, body);
         });
       },
       translation: function (callback) {
         request({ url: quranTranslationURL, method: 'GET' }, function(error, response, body) {
-          console.log("/nodehelpder/get translation with statuscode-" + response.statusCode);
+          console.log("/nodehelper/get translation with statuscode-" + response.statusCode);
           callback(error, body);
         });
       }
     }, function (error, result) {
       if (error) {
         // Somewhere, something went wrong…
-        console.log("/nodehelpder/error while processing requests-" + error);
+        console.log("/nodehelper/error while processing requests-" + error);
       }
 
-      //console.log("/nodehelpder/result.arabic-" + result.arabic);
-      //console.log("/nodehelpder/result.translation-" + result.translation);
+      //console.log("/nodehelper/result.arabic-" + result.arabic);
+      //console.log("/nodehelper/result.translation-" + result.translation);
       var resultArabic = JSON.parse(result.arabic),
           resultTranslation = JSON.parse(result.translation);
 
@@ -80,7 +80,7 @@ module.exports = NodeHelper.create({
       }
 
       var result = {refNumber: randomAyah, arabic: textArabic, translation: textTranslation, surahNameArabic: surahNameArabic, surahNameEnglish: surahNameEnglish, surahNameEnglishTranslation: surahNameEnglishTranslation, surahNumber: surahNumber, ayahNumberInSurah: ayahNumberInSurah, numberOfAyahs: numberOfAyahs, juzNumber: juzNumber};
-      console.log("/nodehelpder/result-"+result.surahNameEnglish+":"+result.ayahNumberInSurah);
+      console.log("/nodehelper/result-"+result.surahNameEnglish+":"+result.ayahNumberInSurah);
 
       self.sendSocketNotification('QURAN_RANDOM_RESULT', result);
     });
@@ -88,7 +88,7 @@ module.exports = NodeHelper.create({
 
   getRandomAyah: function(min, max) {
     var randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
-    //console.log(this.name + "/nodehelpder/random-" + randomNumber);
+    //console.log(this.name + "/nodehelper/random-" + randomNumber);
     return randomNumber;
   }
 });
