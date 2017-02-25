@@ -6,7 +6,7 @@ This an extension for the [MagicMirror](https://github.com/MichMich/MagicMirror)
 ![](https://forum.magicmirror.builders/uploads/files/1487430418021-screenshot.png)
 
 ## Installation
-1. Navigate into your MagicMirror's `modules` folder and execute `https://github.com/slametps/MMM-RandomQuranAyah.git`.
+1. Navigate into your MagicMirror's `modules` folder and execute `git clone https://github.com/slametps/MMM-RandomQuranAyah.git`.
 
 ## Using the module
 
