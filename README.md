@@ -1,12 +1,11 @@
 # MMM-RandomQuranAyah
 This an extension for the [MagicMirror](https://github.com/MichMich/MagicMirror). It will display Quran's ayah (verse) randomly from http://api.alquran.cloud. You can display whether arabic, translation, or both. All translation options can be found at http://api.alquran.cloud/edition.
 
-## Example
-
-![](https://forum.magicmirror.builders/uploads/files/1487430418021-screenshot.png)
+## Screenshot
+![Screenshot](https://raw.githubusercontent.com/slametps/MMM-RandomQuranAyah/master/screenshot.png)
 
 ## Installation
-1. Navigate into your MagicMirror's `modules` folder and execute `git clone https://github.com/slametps/MMM-RandomQuranAyah.git`.
+1. Navigate into your MagicMirror's `modules` folder and execute `https://github.com/slametps/MMM-RandomQuranAyah.git`.
 
 ## Using the module
 
@@ -21,8 +20,8 @@ modules: [
 			showArabic: true,
 			showTranslation: true,
 			surahArabicName:false,
-			translationLang:'en.yusufali',
-			updateInterval: 3600 * 1000, // 1 hour
+			translationLang:'id.indonesian',
+			updateInterval: 3600 * 1000, // milliseconds
 		}
 	}
 ]
@@ -95,7 +94,7 @@ The following properties can be configured:
 The MIT License (MIT)
 =====================
 
-Copyright © 2016-2017 Slamet PS
+Copyright © 2016-2017 Arthur Garza
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
