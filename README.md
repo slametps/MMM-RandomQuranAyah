@@ -1,6 +1,12 @@
 # MMM-RandomQuranAyah
 This an extension for the [MagicMirror](https://github.com/MichMich/MagicMirror). It will display Quran's ayah (verse) randomly from http://api.alquran.cloud. You can display whether arabic, translation, or both. All translation options can be found at http://api.alquran.cloud/edition.
 
+## Version
+1.1
+* get and display current displayed Qur'an ayah/verse in telegram (requires [MMM-TelegramBot](https://github.com/eouia/MMM-TelegramBot)) by typing command ````/quranverse````
+1.0
+* initial release
+
 ## Screenshot
 ![Screenshot](https://raw.githubusercontent.com/slametps/MMM-RandomQuranAyah/master/screenshot.png)
 
@@ -94,7 +100,7 @@ The following properties can be configured:
 The MIT License (MIT)
 =====================
 
-Copyright © 2016-2017 Slamet PS
+Copyright © 2016-2017 Arthur Garza
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation

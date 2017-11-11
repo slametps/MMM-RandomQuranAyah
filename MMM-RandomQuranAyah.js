@@ -10,6 +10,28 @@ Module.register("MMM-RandomQuranAyah",{
     animationSpeed: 2.5 * 1000, // Speed of the update animation. (Milliseconds)
 	},
 
+  dailyQuranVerse : "",
+
+  // Define required translations.
+	getTranslations: function() {
+    return {
+      'en': 'translations/en.json',
+      'id': 'translations/id.json'
+    };
+	},
+
+  getCommands: function(commander) {
+    commander.add({
+      command: 'quranverse',
+      description: this.translate("TXT_RQA_DESC"),
+      callback: 'cmd_quranverse'
+    })
+  },
+
+  cmd_quranverse: function(command, handler) {
+    handler.reply("TEXT", this.dailyQuranVerse, {parse_mode:'Markdown'});
+  },
+
 	start: function() {
 		Log.info("Starting module: " + this.name);
 		var self = this;
@@ -33,6 +55,7 @@ Module.register("MMM-RandomQuranAyah",{
     var ayahNumberInSurah = "";
     var surahNameArabic = "";
     var surahNameEnglish = "";
+    var txtDailyQuranVerse = "";
 
     var wrapper = document.createElement("div");
 
@@ -50,6 +73,7 @@ Module.register("MMM-RandomQuranAyah",{
         txtArabic.className = "bright medium light";
         txtArabic.innerHTML = arabic;
         wrapper.appendChild(txtArabic);
+        txtDailyQuranVerse += arabic + "\n";
       }
 
       var txtTranslation = document.createElement("div");
@@ -61,11 +85,14 @@ Module.register("MMM-RandomQuranAyah",{
       else {
         htmlRef = "QS. " + surahNameEnglish + ":" + ayahNumberInSurah;
       }
+
       if (self.config.showTranslation){
         txtTranslation.innerHTML = translation + " (" + htmlRef + ")";
+        txtDailyQuranVerse += "_" + translation + "_" + "\n(" + htmlRef + ")";
       }
       else {
         txtTranslation.innerHTML = "(" + htmlRef + ")";
+        txtDailyQuranVerse += "(" + htmlRef + ")";
       }
       wrapper.appendChild(txtTranslation);
     }
@@ -74,6 +101,8 @@ Module.register("MMM-RandomQuranAyah",{
       wrapper.innerHTML = this.translate("LOADING");
     }
 
+    this.dailyQuranVerse = txtDailyQuranVerse;
+    console.log('this.dailyQuranVerse-'+ this.dailyQuranVerse);
 		return wrapper;
   },
 
