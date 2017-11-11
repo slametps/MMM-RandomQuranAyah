@@ -4,6 +4,7 @@ This an extension for the [MagicMirror](https://github.com/MichMich/MagicMirror)
 ## Version
 1.1
 * get and display current displayed Qur'an ayah/verse in telegram (requires [MMM-TelegramBot](https://github.com/eouia/MMM-TelegramBot)) by typing command ````/quranverse````
+
 1.0
 * initial release
 
