@@ -12,7 +12,9 @@ This an extension for the [MagicMirror](https://github.com/MichMich/MagicMirror)
 ![Screenshot](https://raw.githubusercontent.com/slametps/MMM-RandomQuranAyah/master/screenshot.png)
 
 ## Installation
-1. Navigate into your MagicMirror's `modules` folder and execute `https://github.com/slametps/MMM-RandomQuranAyah.git`.
+1. Navigate into your MagicMirror's `modules` folder
+2. execute `git clone https://github.com/slametps/MMM-RandomQuranAyah.git`
+3. if this module does not run correctlt, try `npm install async`
 
 ## Using the module
 
@@ -23,7 +25,7 @@ modules: [
 		module: 'MMM-RandomQuranAyah',
 		position: 'top_bar',	// This can be any of the regions. Best result is in the top_bar/bottom_bar as ayah (verse) can take multiple lines.
 		config: {
-			apiVersion: '1.0' // please, leave unchanged. reserved for future use.
+			apiVersion: '1.0', // please, leave unchanged. reserved for future use.
 			showArabic: true,
 			showTranslation: true,
 			surahArabicName:false,
