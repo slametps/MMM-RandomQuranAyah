@@ -70,14 +70,14 @@ Module.register("MMM-RandomQuranAyah",{
       if (self.config.showArabic)
       {
         var txtArabic = document.createElement("div");
-        txtArabic.className = "bright medium light";
+        txtArabic.className = "txt-arabic bright medium light";
         txtArabic.innerHTML = arabic;
         wrapper.appendChild(txtArabic);
         txtDailyQuranVerse += arabic + "\n";
       }
 
       var txtTranslation = document.createElement("div");
-      txtTranslation.className = "bright small light";
+      txtTranslation.className = "txt-translation bright small light";
       var htmlRef = "";
       if (self.config.surahArabicName) {
         htmlRef = surahNameArabic + ":" + ayahNumberInSurah;
