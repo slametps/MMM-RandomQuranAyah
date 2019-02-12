@@ -112,6 +112,10 @@ Module.register("MMM-RandomQuranAyah",{
 	    ]
 	},
 
+  getStyles: function() {
+		return ["MMM-RandomQuranAyah.css"];
+	},
+
 	socketNotificationReceived: function(notification, payload) {
 		Log.log("socket received from Node Helper");
     var self = this;
