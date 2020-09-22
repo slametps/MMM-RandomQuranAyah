@@ -1,0 +1,25 @@
+{
+  "name": "MMM-RandomQuranAyah",
+  "version": "1.0.0",
+  "description": "A MagicMirror module to display ayah/verse of Qur'an randomly.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slametps/MMM-RandomQuranAyah.git"
+  },
+  "keywords": [
+    "MagicMirror",
+    "Moslem",
+    "Islam",
+    "Quran"
+  ],
+  "author": "Slamet Puji Santuso",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/slametps/MMM-RandomQuranAyah/issues"
+  },
+  "homepage": "https://github.com/slametps/MMM-RandomQuranAyah#readme",
+  "dependencies": {
+    "request": "latest",
+    "async": "latest"
+  }
+}
