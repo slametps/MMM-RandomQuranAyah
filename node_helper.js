@@ -25,8 +25,8 @@ module.exports = NodeHelper.create({
     //console.log(this.name + "/nodehelper/quranRandomRequest-" + payload.translationLang);
 		var self = this;
     var randomAyah = self.getRandomAyah(1, 6236);
-    var quranArabicURL = "http://api.alquran.cloud/ayah/" + randomAyah + "/editions/ar";
-    var quranTranslationURL = "http://api.alquran.cloud/ayah/" + randomAyah + "/editions/" + payload.translationLang;
+    var quranArabicURL = "http://api.alquran.cloud/v1/ayah/" + randomAyah + "/editions/ar";
+    var quranTranslationURL = "http://api.alquran.cloud/v1/ayah/" + randomAyah + "/editions/" + payload.translationLang;
     //console.log(this.name + "/nodehelper/URL1-"+quranArabicURL);
     //console.log(this.name + "/nodehelper/URL2-"+quranTranslationURL);
 
